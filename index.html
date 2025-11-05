@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample Website - Geowave Connect</title>
+  <style>
+    body { font-family: Poppins, sans-serif; background:#f8fff8; color:#333; text-align:center; padding:40px; }
+    h1 { color:#2b7a0b; }
+    .card { background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); border-radius:12px; max-width:400px; margin:30px auto; padding:25px; }
+    button { background:#2b7a0b; color:white; border:none; padding:10px 20px; border-radius:8px; cursor:pointer; }
+    button:hover { background:#256508; }
+  </style>
+</head>
+<body>
+  <h1>🌾 Geowave Connect</h1>
+  <p>Welcome to the sample website for our smart farming platform!</p>
+
+  <div class="card">
+    <h2>🌦 Weather Updates</h2>
+    <p>Current Temperature: <span id="temp">--</span>°C</p>
+    <button onclick="getWeather()">Refresh Weather</button>
+  </div>
+
+  <div class="card">
+    <h2>🌿 Common Plant Diseases</h2>
+    <ul style="text-align:left; display:inline-block;">
+      <li>Leaf spot — Brown patches on leaves</li>
+      <li>Root rot — Yellowing and decay near soil</li>
+      <li>Powdery mildew — White powder-like coating</li>
+    </ul>
+  </div>
+
+  <script>
+    async function getWeather() {
+      const apiKey = "b6907d289e10d714a6e88b30761fae22"; // OpenWeather sample key
+      const city = "Mandya";
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+      const data = await res.json();
+      document.getElementById('temp').textContent = data.main.temp;
+    }
+  </script>
+</body>
+</html>
