@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Synergon Connect</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    body {
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(135deg,#0b1d17,#00110b);
+      color:#e8ffe9; height:100vh; margin:0;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      overflow:hidden;
+    }
+    h2 { color:#00ff9d; margin-bottom:40px; text-shadow:0 0 10px #00ff9d80; }
+    .cards { display:flex; gap:60px; flex-wrap:wrap; justify-content:center; }
+    .card {
+      width:200px; height:200px; background:#0f2e25;
+      border-radius:20px; box-shadow:0 0 20px #00ff9d40;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      cursor:pointer; transition:all 0.4s ease;
+    }
+    .card:hover { transform:translateY(-10px) scale(1.05); box-shadow:0 0 40px #00ff9d80; }
+    .icon { font-size:3em; margin-bottom:15px; }
+    a { text-decoration:none; color:inherit; }
+    .back { position:fixed; top:20px; left:30px; color:#00ff9d; text-decoration:none; font-weight:600; }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back">← Home</a>
+  <h2>Welcome to Synergon Connect</h2>
+
+  <div class="cards">
+    <a href="weather.html"><div class="card"><div class="icon">🌦</div><div>Weather Updates</div></div></a>
+    <a href="diseases.html"><div class="card"><div class="icon">🌿</div><div>Plant Diseases</div></div></a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    gsap.from(".card",{opacity:0,y:40,duration:1,stagger:0.2,ease:"power2.out"});
+  </script>
+</body>
+</html>
