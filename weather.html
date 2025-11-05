@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather - Synergon Connect</title>
+  <style>
+    body { font-family: Poppins, sans-serif; text-align:center; background:#f0fff4; padding:40px; }
+    h1 { color:#2b7a0b; }
+    button { background:#2b7a0b; color:white; border:none; padding:10px 20px; border-radius:8px; cursor:pointer; }
+    .nav { margin-bottom:20px; }
+    a { text-decoration:none; color:#2b7a0b; font-weight:600; }
+  </style>
+</head>
+<body>
+  <div class="nav"><a href="index.html">← Back to Home</a></div>
+  <h1>🌦 Weather Updates</h1>
+  <p>Current Temperature in Mandya: <span id="temp">--</span>°C</p>
+  <button onclick="getWeather()">Refresh Weather</button>
+
+  <script>
+    async function getWeather() {
+      const apiKey = "b6907d289e10d714a6e88b30761fae22"; // sample key
+      const city = "Mandya";
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+      const data = await res.json();
+      document.getElementById('temp').textContent = data.main.temp;
+    }
+  </script>
+</body>
+</html>
